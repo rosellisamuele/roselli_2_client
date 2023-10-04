@@ -51,21 +51,21 @@ public class Client {
         for(;;)
             try{
                 
-                System.out.println("4 ... Inserisci la stringa da trasmettere al server:  ");
+                System.out.println(" ... Inserisci la stringa da trasmettere al server:  ");
                 stringaUtente = tastiera.readLine();
 
                 //Chiudo socket qualora uscisse la stringa FINE
                 if(stringaUtente.equals("FINE")){
-                    System.out.println("9 Chiusura socket "+mioSocket+"...");
+                    System.out.println("Chiusura socket "+mioSocket+"...");
                     mioSocket.close();
                     break;
                 }
                 
                 //Invio stringa e ricezione risposta dal server
-                System.out.println("5 ... invio la stringa al server e attendo ...");
+                System.out.println(" ... invio la stringa al server e attendo ...");
                 outVersoServer.writeBytes(stringaUtente+'\n');
                 stringaRicevutaDalServer = inDalServer.readLine();
-                System.out.println("8 ... risposta dal server "+'\n'+stringaRicevutaDalServer);
+                System.out.println(" ... risposta dal server: "+stringaRicevutaDalServer);
 
             }catch(Exception e){
                 //Qualora risultasse un errore generico di comunicazione col server
